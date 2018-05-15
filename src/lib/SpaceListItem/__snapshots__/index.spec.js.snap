@@ -36,14 +36,15 @@ ShallowWrapper {
             backgroundColor=""
             className={null}
             color=""
-            failureBadge={false}
+            failureBadge={true}
             hideDefaultTooltip={false}
             icon={null}
             isOverview={false}
+            overrideSize={0}
             size="medium"
             src={null}
             title="NA"
-            type=""
+            type="bot"
           />
         </ListItemSection>,
         <ListItemSection
@@ -93,14 +94,15 @@ ShallowWrapper {
             backgroundColor=""
             className={null}
             color=""
-            failureBadge={false}
+            failureBadge={true}
             hideDefaultTooltip={false}
             icon={null}
             isOverview={false}
+            overrideSize={0}
             size="medium"
             src={null}
             title="NA"
-            type=""
+            type="bot"
           />,
           "className": "",
           "position": "left",
@@ -115,14 +117,15 @@ ShallowWrapper {
             "backgroundColor": "",
             "className": null,
             "color": "",
-            "failureBadge": false,
+            "failureBadge": true,
             "hideDefaultTooltip": false,
             "icon": null,
             "isOverview": false,
+            "overrideSize": 0,
             "size": "medium",
             "src": null,
             "title": "NA",
-            "type": "",
+            "type": "bot",
           },
           "ref": null,
           "rendered": null,
@@ -212,14 +215,15 @@ ShallowWrapper {
               backgroundColor=""
               className={null}
               color=""
-              failureBadge={false}
+              failureBadge={true}
               hideDefaultTooltip={false}
               icon={null}
               isOverview={false}
+              overrideSize={0}
               size="medium"
               src={null}
               title="NA"
-              type=""
+              type="bot"
             />
           </ListItemSection>,
           <ListItemSection
@@ -269,14 +273,15 @@ ShallowWrapper {
               backgroundColor=""
               className={null}
               color=""
-              failureBadge={false}
+              failureBadge={true}
               hideDefaultTooltip={false}
               icon={null}
               isOverview={false}
+              overrideSize={0}
               size="medium"
               src={null}
               title="NA"
-              type=""
+              type="bot"
             />,
             "className": "",
             "position": "left",
@@ -291,14 +296,15 @@ ShallowWrapper {
               "backgroundColor": "",
               "className": null,
               "color": "",
-              "failureBadge": false,
+              "failureBadge": true,
               "hideDefaultTooltip": false,
               "icon": null,
               "isOverview": false,
+              "overrideSize": 0,
               "size": "medium",
               "src": null,
               "title": "NA",
-              "type": "",
+              "type": "bot",
             },
             "ref": null,
             "rendered": null,
