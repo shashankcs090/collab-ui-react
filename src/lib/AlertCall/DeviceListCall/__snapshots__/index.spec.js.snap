@@ -55,7 +55,9 @@ ShallowWrapper {
             customRefProp=""
             disabled={false}
             focus={false}
+            focusOnLoad={false}
             id="cui-device-list-call-1"
+            isReadOnly={false}
             itemIndex={null}
             label="SJC21-Babelfish"
             link=""
@@ -112,7 +114,9 @@ ShallowWrapper {
             customRefProp=""
             disabled={false}
             focus={false}
+            focusOnLoad={false}
             id="cui-device-list-call-1"
+            isReadOnly={false}
             itemIndex={null}
             label="Use my computer"
             link=""
@@ -228,7 +232,9 @@ ShallowWrapper {
           "customRefProp": "",
           "disabled": false,
           "focus": false,
+          "focusOnLoad": false,
           "id": "cui-device-list-call-1",
+          "isReadOnly": false,
           "itemIndex": null,
           "label": "SJC21-Babelfish",
           "link": "",
@@ -376,7 +382,9 @@ ShallowWrapper {
           "customRefProp": "",
           "disabled": false,
           "focus": false,
+          "focusOnLoad": false,
           "id": "cui-device-list-call-1",
+          "isReadOnly": false,
           "itemIndex": null,
           "label": "Use my computer",
           "link": "",
@@ -493,7 +501,9 @@ ShallowWrapper {
               customRefProp=""
               disabled={false}
               focus={false}
+              focusOnLoad={false}
               id="cui-device-list-call-1"
+              isReadOnly={false}
               itemIndex={null}
               label="SJC21-Babelfish"
               link=""
@@ -550,7 +560,9 @@ ShallowWrapper {
               customRefProp=""
               disabled={false}
               focus={false}
+              focusOnLoad={false}
               id="cui-device-list-call-1"
+              isReadOnly={false}
               itemIndex={null}
               label="Use my computer"
               link=""
@@ -666,7 +678,9 @@ ShallowWrapper {
             "customRefProp": "",
             "disabled": false,
             "focus": false,
+            "focusOnLoad": false,
             "id": "cui-device-list-call-1",
+            "isReadOnly": false,
             "itemIndex": null,
             "label": "SJC21-Babelfish",
             "link": "",
@@ -814,7 +828,9 @@ ShallowWrapper {
             "customRefProp": "",
             "disabled": false,
             "focus": false,
+            "focusOnLoad": false,
             "id": "cui-device-list-call-1",
+            "isReadOnly": false,
             "itemIndex": null,
             "label": "Use my computer",
             "link": "",
