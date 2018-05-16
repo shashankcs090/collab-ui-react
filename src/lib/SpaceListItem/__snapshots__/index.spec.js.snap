@@ -40,7 +40,6 @@ ShallowWrapper {
             hideDefaultTooltip={false}
             icon={null}
             isOverview={false}
-            overrideSize={0}
             size="medium"
             src={null}
             title="NA"
@@ -98,7 +97,6 @@ ShallowWrapper {
             hideDefaultTooltip={false}
             icon={null}
             isOverview={false}
-            overrideSize={0}
             size="medium"
             src={null}
             title="NA"
@@ -121,7 +119,6 @@ ShallowWrapper {
             "hideDefaultTooltip": false,
             "icon": null,
             "isOverview": false,
-            "overrideSize": 0,
             "size": "medium",
             "src": null,
             "title": "NA",
@@ -219,7 +216,6 @@ ShallowWrapper {
               hideDefaultTooltip={false}
               icon={null}
               isOverview={false}
-              overrideSize={0}
               size="medium"
               src={null}
               title="NA"
@@ -277,7 +273,6 @@ ShallowWrapper {
               hideDefaultTooltip={false}
               icon={null}
               isOverview={false}
-              overrideSize={0}
               size="medium"
               src={null}
               title="NA"
@@ -300,7 +295,6 @@ ShallowWrapper {
               "hideDefaultTooltip": false,
               "icon": null,
               "isOverview": false,
-              "overrideSize": 0,
               "size": "medium",
               "src": null,
               "title": "NA",
