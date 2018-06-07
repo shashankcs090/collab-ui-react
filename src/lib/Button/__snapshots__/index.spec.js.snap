@@ -15,6 +15,7 @@ ShallowWrapper {
     disabled={false}
     expand={false}
     href=""
+    index={null}
     label=""
     large={false}
     loading={false}
@@ -65,8 +66,8 @@ ShallowWrapper {
       "className": "cui-button",
       "disabled": false,
       "href": undefined,
-      "onClick": null,
-      "onKeyPress": [Function],
+      "onClick": [Function],
+      "onKeyDown": [Function],
       "role": "",
       "style": Object {},
       "tabIndex": 0,
@@ -152,8 +153,8 @@ ShallowWrapper {
         "className": "cui-button",
         "disabled": false,
         "href": undefined,
-        "onClick": null,
-        "onKeyPress": [Function],
+        "onClick": [Function],
+        "onKeyDown": [Function],
         "role": "",
         "style": Object {},
         "tabIndex": 0,
