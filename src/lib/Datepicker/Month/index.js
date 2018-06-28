@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Week from '@collab-ui/react/Datepicker/Week';
 import * as utils from '@collab-ui/react/Datepicker/date_utils';
 
-export default class Month extends React.Component {
+class Month extends React.Component {
   static displayName = 'Month';
 
   renderWeeks = () => {
@@ -48,3 +48,5 @@ export default class Month extends React.Component {
 Month.propTypes = {
   day: PropTypes.object.isRequired,
 };
+
+export default Month;

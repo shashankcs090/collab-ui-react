@@ -15,7 +15,7 @@ import Calendar from '@collab-ui/react/Datepicker/Calendar';
 import * as utils from '@collab-ui/react/Datepicker/date_utils';
 import moment from 'moment';
 
-export default class DatePicker extends React.Component {
+class DatePicker extends React.Component {
   static displayName = 'DatePicker';
 
   static childContextTypes = {
@@ -45,14 +45,8 @@ export default class DatePicker extends React.Component {
   };
 
   componentWillMount() {
-    const { initialSelection, minDate, maxDate } = this.props;
-    const selection = (
-      (!utils.isDayDisabled(initialSelection, this.props) && initialSelection)
-      || (minDate && minDate)
-      || (maxDate && maxDate)
-    );
-
-    this.setPreSelection(selection);
+    const { initialSelection } = this.props;
+    this.setPreSelection(initialSelection);
   }
 
   setOpen = open => {
@@ -72,8 +66,8 @@ export default class DatePicker extends React.Component {
 
   handleSelect = (date, event) => {
     const { shouldCloseOnSelect } = this.props;
-    this.setSelected(date, event);
     this.setPreSelection(date);
+    this.setSelected(date, event);
     shouldCloseOnSelect && this.setOpen(false);
   };
 
@@ -154,7 +148,7 @@ export default class DatePicker extends React.Component {
   render() {
     const {
       disabled,
-      htmlId,
+      inputId,
       label,
       name,
       placeholder,
@@ -164,6 +158,7 @@ export default class DatePicker extends React.Component {
       maxDate,
       minDate,
       direction,
+      isDynamic,
     } = this.props;
 
     const { selected, focus, anchorNode, isOpen, inputValue } = this.state;
@@ -172,7 +167,7 @@ export default class DatePicker extends React.Component {
       return (
         <Input
           disabled={disabled}
-          htmlId={`${htmlId}-input`}
+          htmlId={inputId}
           inputRef={ref => !this.state.anchorNode && this.setState({ anchorNode: ref})}
           label={label}
           name={`${name}-input`}
@@ -202,7 +197,7 @@ export default class DatePicker extends React.Component {
     const popoverElement = (
       <EventOverlay
         allowClickAway
-        isDynamic
+        isDynamic={isDynamic}
         anchorNode={anchorNode}
         close={() => this.setOpen(false)}
         direction={direction}
@@ -235,11 +230,12 @@ DatePicker.propTypes = {
   onChange: PropTypes.func,
   initialSelection: PropTypes.object,
   shouldCloseOnSelect: PropTypes.bool,
-  htmlId: PropTypes.string,
+  inputId: PropTypes.string,
   label: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   direction: PropTypes.string,
+  isDynamic: PropTypes.bool,
 };
 
 DatePicker.defaultProps = {
@@ -254,7 +250,11 @@ DatePicker.defaultProps = {
   onChange: null,
   initialSelection: moment(),
   direction: 'bottom-center',
+  isDynamic: true,
+  inputId: '',
 };
+
+export default DatePicker;
 
 /**
 * @name Datepicker

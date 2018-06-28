@@ -64,7 +64,7 @@ describe.only('tests for <Day />', () => {
 
   it('when Day the disabled, should set disabled prop on button', () => {
     const container = mount(
-      <Day day={day} filterDate={() => false} />
+      <Day day={day} filterDate={() => true} />
     );
     expect(container.find('.cui-button').props().disabled).toEqual(true);
   });

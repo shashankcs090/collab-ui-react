@@ -64,7 +64,7 @@ describe('tests for <Calendar />', () => {
 
   it('should next and previous buttons disabled when the other months are disabled', () => {
     const calendar = mount(
-      <Calendar monthFormat={monthFormat} minDate={day} maxDate={day.add(2, 'days')}/>,
+      <Calendar monthFormat={monthFormat} minDate={day} maxDate={day.clone().add(2, 'days')}/>,
       { context:{ selected: day } }
     );
     expect(calendar.find('.cui-button.cui-datepicker__navigation--buttons--next').props().disabled).toEqual(true);
@@ -73,13 +73,33 @@ describe('tests for <Calendar />', () => {
 
   it('when next is clicked should switch to next month vice-versa', () => {
     const calendar = mount(
-        <Calendar monthFormat={monthFormat} />,
-        { context:{ selected: day } }
+      <Calendar monthFormat={monthFormat} />,
+      { context:{ selected: day } }
     );
     calendar.find('.cui-button.cui-datepicker__navigation--buttons--next').simulate('click');
     expect(calendar.find('.cui-datepicker__navigation--current-month').text()).toEqual('May 2018');
     calendar.find('.cui-button.cui-datepicker__navigation--buttons--previous').simulate('click');
     expect(calendar.find('.cui-datepicker__navigation--current-month').text()).toEqual('April 2018');
+  });
+
+  it('should disable dates that are filtered', () => {
+    const calendar = mount(
+      <Calendar
+        monthFormat={monthFormat}
+        filterDate={day => day.day() == '0'}
+      />,
+      { context:{ selected: day } }
+    );
+    calendar.find('Week')
+    .forEach(week =>{
+        expect(
+          week.find('Day')
+            .at(0)
+            .find('button.cui-button')
+            .props().disabled
+        ).toEqual(true);
+      }
+    );
   });
 
 

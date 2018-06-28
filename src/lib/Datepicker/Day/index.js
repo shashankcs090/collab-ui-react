@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from '@collab-ui/react';
 import * as utils from '@collab-ui/react/Datepicker/date_utils';
 
-export default class Day extends React.Component {
+class Day extends React.Component {
   static displayName = 'Day';
 
   handleClick = e => {
@@ -57,3 +57,5 @@ Day.propTypes = {
   day: PropTypes.object,
   month: PropTypes.number,
 };
+
+export default Day;

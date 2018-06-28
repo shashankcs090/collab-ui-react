@@ -132,16 +132,16 @@ export function formatDate(date, format) {
   return date.format(format);
 }
 
-export function safeDateFormat(date, { dateFormat, locale }) {
-  return (
-    (date &&
-      date
-        .clone()
-        .locale(locale || moment.locale())
-        .format(Array.isArray(dateFormat) ? dateFormat[0] : dateFormat)) ||
-    ''
-  );
-}
+//export function safeDateFormat(date, { dateFormat, locale }) {
+//  return (filterDate
+//    (date &&
+//      date
+//        .clone()
+//        .locale(locale || moment.locale())
+//        .format(Array.isArray(dateFormat) ? dateFormat[0] : dateFormat)) ||
+//    ''
+//  );
+//}
 
 
 export function isSameDay(moment1, moment2) {
@@ -190,31 +190,17 @@ export function isDayDisabled(
   return (
     (minDate && day.isBefore(minDate, 'day')) ||
     (maxDate && day.isAfter(maxDate, 'day')) ||
-    (filterDate && !filterDate(day.clone())) ||
+    (filterDate && filterDate(day.clone())) ||
     false
   );
 }
 
-export function allDaysDisabledBefore(
-  day,
-  unit,
-  { minDate } = {}
-) {
-  const dateBefore = day.clone().subtract(1, unit);
-  return (
-    (minDate && dateBefore.isBefore(minDate, unit))
-    || false
-  );
+export function shouldPrevMonthDisable(day, minDate) {
+  const firstDayOfCurrMonth = day.clone().startOf('month');
+  return (minDate && !minDate.isBefore(firstDayOfCurrMonth));
 }
 
-export function allDaysDisabledAfter(
-  day,
-  unit,
-  { maxDate } = {}
-) {
-  const dateAfter = day.clone().add(1, unit);
-  return (
-    (maxDate && dateAfter.isAfter(maxDate, unit))
-    || false
-  );
+export function shouldNextMonthDisable(day, maxDate) {
+  const lastDayOfCurrMonth = day.clone().endOf('month');
+  return (maxDate && !maxDate.isAfter(lastDayOfCurrMonth));
 }

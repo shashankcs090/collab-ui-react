@@ -5,7 +5,7 @@ import { Button, Icon }  from '@collab-ui/react';
 
 import * as utils from '@collab-ui/react/Datepicker/date_utils';
 
-export default class Calendar extends React.Component {
+class Calendar extends React.Component {
   static displayName = 'Calendar';
 
   state = {
@@ -67,12 +67,8 @@ export default class Calendar extends React.Component {
     };
 
     const renderPreviousMonthButton = () => {
-      const allPrevDaysDisabled = utils.allDaysDisabledBefore(
-        date,
-        'month',
-        this.props
-      );
-
+      const { minDate } = this.props;
+      const allPrevDaysDisabled = utils.shouldPrevMonthDisable(date, minDate);
       return (
         <Button
           color='none'
@@ -86,11 +82,8 @@ export default class Calendar extends React.Component {
     };
 
     const renderNextMonthButton = () => {
-      const allNextDaysDisabled = utils.allDaysDisabledAfter(
-        date,
-        'month',
-        this.props
-      );
+      const { maxDate } = this.props;
+      const allNextDaysDisabled = utils.shouldNextMonthDisable(date, maxDate);
 
       return (
         <Button
@@ -161,4 +154,8 @@ Calendar.contextTypes = {
 Calendar.propTypes = {
   monthFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   locale: PropTypes.string,
+  minDate: PropTypes.object,
+  maxDate: PropTypes.object,
 };
+
+export default Calendar;

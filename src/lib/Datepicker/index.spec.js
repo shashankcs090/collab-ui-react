@@ -78,4 +78,96 @@ describe('tests for <DatePicker />', () => {
     expect(container.find('.cui-button.cui-datepicker__day--selected').text()).toEqual("1");
     expect(container.find('input').props().value).toEqual('04/01/2018');
   });
+
+  it("onSelect/onChange callback should be called when a date is clicked", () => {
+    let selectedDate;
+    let changedDate;
+    const onSelectFn = jest.fn(date => selectedDate = date);
+    const onChangeFn = jest.fn(date => changedDate = date);
+    const container = mount(
+      <DatePicker
+        initialSelection={day}
+        onSelect={onSelectFn}
+        onChange={onChangeFn}
+      />
+    );
+    container.find('input').simulate('mousedown');
+    container.update();
+    container.find('.cui-button.cui-datepicker__day--focus').simulate('click');
+    expect(onSelectFn).toHaveBeenCalled();
+    expect(onChangeFn).toHaveBeenCalled();
+
+    expect(selectedDate).toEqual(day);
+    expect(changedDate).toEqual(day);
+  });
+
+  it("onChange callback should be called when a focused date changes", () => {
+    let changedDate;
+    const onChangeFn = jest.fn(date => changedDate = date);
+    const container = mount(
+      <DatePicker initialSelection={day} onChange={onChangeFn}/>
+    );
+    container.find('input').simulate('mousedown');
+    container.update();
+    //right
+    container.find('input').simulate('keydown', { which: 39 });
+    expect(container.find('.cui-button.cui-datepicker__day--focus').text()).toEqual("2");
+
+    expect(onChangeFn).toHaveBeenCalled();
+    expect(changedDate).toEqual(day.clone().add(1, 'day'));
+  });
+
+  it("onMonthChange callback should be called when a month switch happens", () => {
+    let changedDate;
+    const onMonthChangeFn = jest.fn(date => changedDate = date);
+    const container = mount(
+      <DatePicker initialSelection={day} onMonthChange={onMonthChangeFn}/>
+    );
+    container.find('input').simulate('mousedown');
+    container.update();
+    //next month
+    container.find('.cui-button.cui-datepicker__navigation--buttons--next')
+      .simulate('click');
+    expect(changedDate).toEqual(day.clone().add(1, 'month'));
+    expect(onMonthChangeFn).toHaveBeenCalledTimes(1);
+
+    //prev month
+    container.find('.cui-button.cui-datepicker__navigation--buttons--previous')
+      .simulate('click');
+    expect(changedDate).toEqual(day);
+    expect(onMonthChangeFn).toHaveBeenCalledTimes(2);
+  });
+
+  it("when date is entered in input box, " +
+  "should select that date if it is valid ", () => {
+    let selectedDate;
+    let changedDate;
+    const onSelectFn = jest.fn(date => selectedDate = date);
+    const onChangeFn = jest.fn(date => changedDate = date);
+    const container = mount(
+      <DatePicker
+        initialSelection={day}
+        onSelect={onSelectFn}
+        onChange={onChangeFn}
+      />
+    );
+    //open
+    container.find('input').simulate('mousedown');
+    // change date
+    container.find('input')
+      .simulate('change', { target: { value: "04/02/2018" } });
+    expect(onSelectFn).toHaveBeenCalled();
+    expect(onChangeFn).toHaveBeenCalled();
+
+    expect(selectedDate.format('L')).toEqual("04/02/2018");
+    expect(changedDate.format('L')).toEqual("04/02/2018");
+  });
+
+  it("when the datepicker is disabled, input tag should be disabled", () => {
+    const container = mount(
+      <DatePicker initialSelection={day} disabled/>
+    );
+    expect(container.find('input').props().disabled).toEqual(true);
+  });
+
 });

@@ -10,6 +10,8 @@ ShallowWrapper {
     disabled={false}
     filterDate={null}
     initialSelection={"2018-03-31T18:30:00.000Z"}
+    inputId=""
+    isDynamic={true}
     locale="en"
     monthFormat="MMMM YYYY"
     onChange={null}
@@ -35,7 +37,7 @@ ShallowWrapper {
           defaultValue=""
           disabled={false}
           errorArr={Array []}
-          htmlId="undefined-input"
+          htmlId=""
           inputClassName=""
           inputHelpText=""
           inputRef={[Function]}
@@ -116,7 +118,7 @@ ShallowWrapper {
           "defaultValue": "",
           "disabled": false,
           "errorArr": Array [],
-          "htmlId": "undefined-input",
+          "htmlId": "",
           "inputClassName": "",
           "inputHelpText": "",
           "inputRef": [Function],
@@ -221,7 +223,7 @@ ShallowWrapper {
             defaultValue=""
             disabled={false}
             errorArr={Array []}
-            htmlId="undefined-input"
+            htmlId=""
             inputClassName=""
             inputHelpText=""
             inputRef={[Function]}
@@ -302,7 +304,7 @@ ShallowWrapper {
             "defaultValue": "",
             "disabled": false,
             "errorArr": Array [],
-            "htmlId": "undefined-input",
+            "htmlId": "",
             "inputClassName": "",
             "inputHelpText": "",
             "inputRef": [Function],
